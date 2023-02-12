@@ -7,13 +7,24 @@ import time
 from flask import Flask, render_template, session, url_for, redirect, request
 from telepot.namedtuple import *
 
-USERNAME = "PYTHONANYWHERE_USERNAME"
-TOKEN = "5882355812:AAFrCVfieKhyq5K2-eCupxDdI5jq5VzXaks"
-SECRET = ''.join(random.choice(string.ascii_letters) for x in range(20))
-URL = f"https://{romeoxD}.pythonanywhere.com/{SECRET}"
+import requests
+username = 'romeoxD'
+token = '399d331f954b2685c9532224f79538df378aa036'
 
+response = requests.get(
+    'https://www.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
+        username=username
+    ),
+    headers={'Authorization': 'Token {token}'.format(token=token)}
+)
+if response.status_code == 200:
+    print('CPU quota info:')
+    print(response.content)
+else:
+    print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
+                        
 telepot.api.set_proxy('http://proxy.server:3128')
-bot = telepot.Bot(TOKEN)
+bot = telepot.Bot(5882355812:AAFrCVfieKhyq5K2-eCupxDdI5jq5VzXaks)
 bot.setWebhook(URL, max_connections=10)
 
 def processing(msg):
