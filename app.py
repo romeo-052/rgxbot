@@ -8,9 +8,9 @@ from flask import Flask, render_template, session, url_for, redirect, request
 from telepot.namedtuple import *
 
 USERNAME = "PYTHONANYWHERE_USERNAME"
-TOKEN = "TELEGRAM_BOT_API"
+TOKEN = "5882355812:AAFrCVfieKhyq5K2-eCupxDdI5jq5VzXaks"
 SECRET = ''.join(random.choice(string.ascii_letters) for x in range(20))
-URL = f"https://{USERNAME}.pythonanywhere.com/{SECRET}"
+URL = f"https://{romeoxD}.pythonanywhere.com/{SECRET}"
 
 telepot.api.set_proxy('http://proxy.server:3128')
 bot = telepot.Bot(TOKEN)
